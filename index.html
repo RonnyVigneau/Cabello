@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Salón Vigneau</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Salón Vigneau</h1>
+        <p>Confianza a tu estilo</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="contenedor">
+
+        <aside>
+            <h3>Servicios</h3>
+            <a href="#cortes">Cortes</a>
+            <a href="#tratamientos">Tratamientos</a>
+            <a href="#color">Color</a>
+            <a href="#reservas">Reservar Hora</a>
+        </aside>
+
+        <main>
+
+            <section id="inicio">
+                <h2>Inicio</h2>
+                <p>Eres lo más importante en el presente que compartimos.</p>
+                <button id="btn-saludo">Un regalo para ti</button>
+            </section>
+
+            <section id="nosotros">
+                <h2>Nosotros</h2>
+                <p>Nuestra inspiración es el impacto positivo que nuestro trabajo logra en cada una de las personas que
+                    pasan por nuestras manos. El arte es la sonrisa que se esculpe en tu rostro, al ver tu belleza
+                    potenciada por nosotros</p>
+            </section>
+
+
+
+            <section id="cortes">
+                <h2>Cortes</h2>
+                <h3>Melena</h3>
+                <p><img src="assets/img/oladimeji-odunsi-n5aE6hOY6do-unsplash.jpg" alt="Melena"></p>
+                <span class="credito-oculto">Foto de Oladimeji Odunsi en Unsplash</span>
+                <h3>Recto</h3>
+                <p><img src="assets/img/alexander-grey-ORCPTrkkezw-unsplash.jpg" alt="Corte Recto"></p>
+                <span class="credito-oculto">Foto de Alexander Grey en Unsplash</span>
+                <h3>Mullet</h3>
+                <p><img src="assets/img/see-plus-Y9zOvfaB1SM-unsplash.jpg" alt="Mullet"></p>
+                <span class="credito-oculto">Foto de see plus en Unsplash</span>
+                <h3>Wolf</h3>
+                <p><img src="assets/img/gus-tu-njana-uwcs7F-JgU8-unsplash.jpg" alt="Wolf"></p>
+                <span class="credito-oculto">Foto de Gus Tu Njana en Unsplash</span>
+            </section>
+
+            <section id="tratamientos">
+                <h2>Tratamientos</h2>
+                <h3>Metal Detox</h3>
+                <p><img src="/assets/img/Metal Detox.jpg" alt="Metal Detox L'Orèal"></p>
+                <h3>Absolut Repair Molecular</h3>
+                <p><img src="/assets/img/LOreal-Professionnel-Absolut-Repair-Molecular-740854350.jpg"
+                        alt="Absolut Repair Molecular L'Orèal"></p>
+            </section>
+
+            <section id="color">
+                <section id="color">
+                    <h2>Catálogo de Color</h2>
+                    <p>Trabajamos con la nomenclatura internacional estándar. El primer número indica la altura del tono
+                        (qué tan claro u oscuro es), y el número después del punto indica el reflejo principal.</p>
+
+                    <h3>Alturas de Tono (Bases)</h3>
+
+                    <!-- Este es el visor que cambiará de color dinámicamente -->
+                    <div id="visor-color">Haz clic en un tono de la tabla para visualizarlo</div>
+
+                    <table class="tabla-colores">
+                        <thead>
+                            <tr>
+                                <th>Nomenclatura</th>
+                                <th>Nombre Estándar del Color</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Agregamos la clase 'fila-color' y los datos ocultos del color hexadecimal -->
+                            <tr class="fila-color" data-color="#1a1a1a" data-nombre="Negro Profundo">
+                                <td>1.0</td>
+                                <td>Negro Profundo</td>
+                            </tr>
+                            <tr class="fila-color" data-color="#302013" data-nombre="Castaño Oscuro">
+                                <td>3.0</td>
+                                <td>Castaño Oscuro</td>
+                            </tr>
+                            <tr class="fila-color" data-color="#4a3123" data-nombre="Castaño Medio">
+                                <td>4.0</td>
+                                <td>Castaño Medio</td>
+                            </tr>
+                            <tr class="fila-color" data-color="#6b472e" data-nombre="Castaño Claro">
+                                <td>5.0</td>
+                                <td>Castaño Claro</td>
+                            </tr>
+                            <tr class="fila-color" data-color="#8b6540" data-nombre="Rubio Oscuro">
+                                <td>6.0</td>
+                                <td>Rubio Oscuro</td>
+                            </tr>
+                            <tr class="fila-color" data-color="#ad8450" data-nombre="Rubio Medio">
+                                <td>7.0</td>
+                                <td>Rubio Medio</td>
+                            </tr>
+                            <tr class="fila-color" data-color="#d4af7a" data-nombre="Rubio Claro">
+                                <td>8.0</td>
+                                <td>Rubio Claro</td>
+                            </tr>
+                            <tr class="fila-color" data-color="#ebd2a4" data-nombre="Rubio Muy Claro">
+                                <td>9.0</td>
+                                <td>Rubio Muy Claro</td>
+                            </tr>
+                            <tr class="fila-color" data-color="#f5e6cd" data-nombre="Rubio Platino / Extra Claro">
+                                <td>10.0</td>
+                                <td>Rubio Platino / Extra Claro</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Reflejos (Matices)</h3>
+
+                    <!-- Nuevo visor exclusivo para los matices -->
+                    <div id="visor-matiz">Haz clic en un matiz de la tabla para visualizarlo</div>
+
+                    <table class="tabla-colores">
+                        <thead>
+                            <tr>
+                                <th>Nomenclatura</th>
+                                <th>Tipo de Reflejo</th>
+                                <th>Ejemplo en Tintura</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="fila-matiz" data-color="#7b8b9a" data-nombre="Ceniza (Frío / Azulado)">
+                                <td>.1</td>
+                                <td>Ceniza (Frío)</td>
+                                <td>7.1 (Rubio Medio Ceniza)</td>
+                            </tr>
+                            <tr class="fila-matiz" data-color="#937b9a" data-nombre="Nacarado / Irisado (Violeta)">
+                                <td>.2</td>
+                                <td>Nacarado / Irisado (Frío)</td>
+                                <td>8.2 (Rubio Claro Nacarado)</td>
+                            </tr>
+                            <tr class="fila-matiz" data-color="#d4b85c" data-nombre="Dorado (Amarillo / Oro)">
+                                <td>.3</td>
+                                <td>Dorado (Cálido)</td>
+                                <td>6.3 (Rubio Oscuro Dorado)</td>
+                            </tr>
+                            <tr class="fila-matiz" data-color="#c46227" data-nombre="Cobrizo (Naranja)">
+                                <td>.4</td>
+                                <td>Cobrizo (Cálido)</td>
+                                <td>7.4 (Rubio Medio Cobrizo)</td>
+                            </tr>
+                            <tr class="fila-matiz" data-color="#8a3324" data-nombre="Caoba (Rojizo Violeta)">
+                                <td>.5</td>
+                                <td>Caoba (Rojizo frío)</td>
+                                <td>5.5 (Castaño Claro Caoba)</td>
+                            </tr>
+                            <tr class="fila-matiz" data-color="#a82020" data-nombre="Rojo (Rojo Intenso)">
+                                <td>.6</td>
+                                <td>Rojo (Cálido)</td>
+                                <td>6.6 (Rubio Oscuro Rojo)</td>
+                            </tr>
+                            <tr class="fila-matiz" data-color="#6b543e" data-nombre="Mate / Marrón (Verdoso / Neutro)">
+                                <td>.7</td>
+                                <td>Mate / Marrón (Neutro)</td>
+                                <td>7.7 (Rubio Medio Marrón)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </section>
+
+            <section id="cotizador">
+                <h2>Diseñador de Iluminación y Cotizador</h2>
+                <p>Revisa la guía técnica de cada zona del cráneo y selecciona la técnica que deseas aplicar en cada
+                    una.</p>
+
+                <!-- 1. DIAGNÓSTICO E HISTORIAL CAPILAR -->
+                <fieldset class="grupo-cotizador">
+                    <legend>1. Historial Capilar</legend>
+
+                    <label for="tipo-base">Origen del color actual:</label>
+                    <select id="tipo-base" class="input-cotizador">
+                        <option value="natural">Cabello Natural</option>
+                        <option value="artificial">Cabello Teñido / Procesado</option>
+                    </select>
+
+                    <label for="quimicos-previos">Procesos químicos previos (últimos 12 meses):</label>
+                    <select id="quimicos-previos" class="input-cotizador">
+                        <option value="ninguno">Ninguno / Solo corte</option>
+                        <option value="alisado">Alisado / Keratina / Botox</option>
+                        <option value="decoloracion">Decoloración previa / Balayage</option>
+                        <option value="tinte-oscuro">Tinte Negro o Rojo intenso</option>
+                    </select>
+                </fieldset>
+
+                <!-- 2. INFOGRAFÍA INTERACTIVA DE ZONAS CON SELECCIÓN DIRECTA -->
+                <fieldset class="grupo-cotizador">
+                    <legend>2. Guía Técnica y Selección por Zona</legend>
+
+                    <div class="guia-tecnica-contenedor">
+                        <div class="encabezado-guia">
+                            <span class="subtitulo-guia">CONOCE CADA ZONA, ELIGE LA TÉCNICA Y CONTROLA EL
+                                RESULTADO</span>
+                            <blockquote class="lema-principal">"El color se diseña, no se improvisa"</blockquote>
+                        </div>
+
+                        <div class="contenedor-mapa-tactil">
+                            <h3>Mapa Craneal Interactivo</h3>
+                            <p><small>Toca cualquier zona de la cabeza para seleccionar o revisar sus técnicas</small>
+                            </p>
+
+                            <svg id="mapa-craneo-svg" viewBox="0 0 500 520" xmlns="http://www.w3.org/2000/svg">
+                                <g id="silueta-referencia">
+                                    <!-- Perfil del rostro humano (referencia visual no cliqueable) -->
+                                    <path class="silueta-rostro" d="M 175 185 
+                     C 155 195, 140 220, 145 245 
+                     C 135 255, 120 268, 105 272 
+                     C 120 282, 138 285, 148 290 
+                     C 130 310, 140 330, 155 335 
+                     C 170 340, 180 355, 190 380 
+                     C 200 410, 210 430, 215 450
+                     L 310 450
+                     C 305 410, 298 380, 290 350
+                     Z" />
+                                    <!-- Oreja de referencia -->
+                                    <path class="oreja-svg"
+                                        d="M 215 280 C 200 280, 195 305, 210 325 C 220 335, 230 320, 222 300 Z" />
+                                </g>
+
+                                <!-- ZONAS CAPILARES CLIQUEABLES (1 a 9) -->
+
+                                <!-- Zona 1: Frontal (Flequillo / Contorno) -->
+                                <path class="zona-svg" data-zona="1"
+                                    d="M 175 185 C 190 145, 220 115, 255 100 L 250 185 C 215 185, 190 185, 175 185 Z" />
+
+                                <!-- Zona 2: Parietal / Lateral (Sienes) -->
+                                <path class="zona-svg" data-zona="2"
+                                    d="M 175 185 L 250 185 L 245 260 C 215 260, 190 240, 175 185 Z" />
+
+                                <!-- Zona 3: Superior (Zona Cima) -->
+                                <path class="zona-svg" data-zona="3"
+                                    d="M 255 100 C 290 90, 335 95, 365 115 L 325 185 L 250 185 Z" />
+
+                                <!-- Zona 4: Coronilla Superior -->
+                                <path class="zona-svg" data-zona="4"
+                                    d="M 365 115 C 400 135, 425 170, 430 205 L 335 220 L 325 185 Z" />
+
+                                <!-- Zona 5: Coronilla Inferior -->
+                                <path class="zona-svg" data-zona="5"
+                                    d="M 430 205 C 435 240, 425 270, 410 295 L 325 270 L 335 220 Z" />
+
+                                <!-- Zona 6: Zona Occipital -->
+                                <path class="zona-svg" data-zona="6"
+                                    d="M 410 295 C 395 325, 370 350, 340 365 L 295 310 L 325 270 Z" />
+
+                                <!-- Zona 7: Zona Nuca -->
+                                <path class="zona-svg" data-zona="7"
+                                    d="M 340 365 C 320 375, 295 385, 275 385 L 265 330 L 295 310 Z" />
+
+                                <!-- Zona 8: Perímetro (Contorno inferior y patilla posterior) -->
+                                <path class="zona-svg" data-zona="8"
+                                    d="M 275 385 C 260 385, 245 375, 235 360 L 250 310 L 265 330 Z" />
+
+                                <!-- Zona 9: Patillas (Zona temporal e inferior frontal) -->
+                                <path class="zona-svg" data-zona="9"
+                                    d="M 245 260 L 325 270 L 295 310 L 250 310 L 235 360 C 220 340, 210 300, 215 270 Z" />
+
+                                <!-- ETIQUETAS NUMÉRICAS REUBICADAS -->
+                                <text x="212" y="150" class="label-svg">1</text>
+                                <text x="210" y="215" class="label-svg">2</text>
+                                <text x="300" y="135" class="label-svg">3</text>
+                                <text x="375" y="165" class="label-svg">4</text>
+                                <text x="380" y="250" class="label-svg">5</text>
+                                <text x="355" y="320" class="label-svg">6</text>
+                                <text x="302" y="355" class="label-svg">7</text>
+                                <text x="258" y="358" class="label-svg">8</text>
+                                <text x="252" y="285" class="label-svg">9</text>
+                            </svg>
+                        </div>
+
+                        <div class="grid-informacion-zonas">
+
+                            <!-- Zona 1: Magenta -->
+                            <div class="card-info z1">
+                                <div class="card-header-info">
+                                    <div class="card-tag">1</div>
+                                    <h4>ZONA FRONTAL <small>(Flequillo / contorno)</small></h4>
+                                </div>
+                                <ul>
+                                    <li>Face framing</li>
+                                    <li>Mechas frontales</li>
+                                    <li>Iluminación de contorno</li>
+                                    <li>Corrección de sombras</li>
+                                </ul>
+                                <p class="destaque">Define la luminosidad del rostro.</p>
+                                <div class="selector-zona-box">
+                                    <label>Técnica a aplicar:</label>
+                                    <select class="input-zona" data-zona="1">
+                                        <option value="ninguna">Sin trabajo en esta zona</option>
+                                        <option value="faceFraming">Face framing</option>
+                                        <option value="mechasFrontales">Mechas frontales</option>
+                                        <option value="iluminacionContorno">Iluminación de contorno</option>
+                                        <option value="correccionSombras">Corrección de sombras</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Zona 2: Morado -->
+                            <div class="card-info z2">
+                                <div class="card-header-info">
+                                    <div class="card-tag">2</div>
+                                    <h4>ZONA PARIETAL / LATERAL <small>(Sienes)</small></h4>
+                                </div>
+                                <ul>
+                                    <li>Babylights</li>
+                                    <li>Mechas finas</li>
+                                    <li>Balayage suave</li>
+                                    <li>Transiciones de color</li>
+                                </ul>
+                                <p class="destaque">Enmarca el rostro y aporta dimensión.</p>
+                                <div class="selector-zona-box">
+                                    <label>Técnica a aplicar:</label>
+                                    <select class="input-zona" data-zona="2">
+                                        <option value="ninguna">Sin trabajo en esta zona</option>
+                                        <option value="babylights">Babylights</option>
+                                        <option value="mechasFinas">Mechas finas</option>
+                                        <option value="balayageSuave">Balayage suave</option>
+                                        <option value="transicionesColor">Transiciones de color</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Zona 3: Azul Cima -->
+                            <div class="card-info z3">
+                                <div class="card-header-info">
+                                    <div class="card-tag">3</div>
+                                    <h4>ZONA SUPERIOR <small>(Zona cima)</small></h4>
+                                </div>
+                                <ul>
+                                    <li>Reflejos globales</li>
+                                    <li>Babylights</li>
+                                    <li>Iluminación uniforme</li>
+                                    <li>Efecto sun kissed</li>
+                                </ul>
+                                <p class="destaque">Es la zona de mayor exposición visual.</p>
+                                <div class="selector-zona-box">
+                                    <label>Técnica a aplicar:</label>
+                                    <select class="input-zona" data-zona="3">
+                                        <option value="ninguna">Sin trabajo en esta zona</option>
+                                        <option value="reflejosGlobales">Reflejos globales</option>
+                                        <option value="babylights">Babylights</option>
+                                        <option value="iluminacionUniforme">Iluminación uniforme</option>
+                                        <option value="sunKissed">Efecto sun kissed</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Zona 4: Verde -->
+                            <div class="card-info z4">
+                                <div class="card-header-info">
+                                    <div class="card-tag">4</div>
+                                    <h4>CORONILLA SUPERIOR</h4>
+                                </div>
+                                <ul>
+                                    <li>Reflejos estratégicos</li>
+                                    <li>Balayage suave</li>
+                                    <li>Efecto multidimensional</li>
+                                    <li>Conexión con laterales</li>
+                                </ul>
+                                <p class="destaque">Aporta volumen visual y movimiento.</p>
+                                <div class="selector-zona-box">
+                                    <label>Técnica a aplicar:</label>
+                                    <select class="input-zona" data-zona="4">
+                                        <option value="ninguna">Sin trabajo en esta zona</option>
+                                        <option value="reflejosEstrategicos">Reflejos estratégicos</option>
+                                        <option value="balayageSuave">Balayage suave</option>
+                                        <option value="multidimensional">Efecto multidimensional</option>
+                                        <option value="conexionLaterales">Conexión con laterales</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Zona 5: Mostaza -->
+                            <div class="card-info z5">
+                                <div class="card-header-info">
+                                    <div class="card-tag">5</div>
+                                    <h4>CORONILLA INFERIOR</h4>
+                                </div>
+                                <ul>
+                                    <li>Mechas de transición</li>
+                                    <li>Balayage medio</li>
+                                    <li>Sombreado</li>
+                                    <li>Conexión con occipital</li>
+                                </ul>
+                                <p class="destaque">Suaviza la caída del color hacia atrás.</p>
+                                <div class="selector-zona-box">
+                                    <label>Técnica a aplicar:</label>
+                                    <select class="input-zona" data-zona="5">
+                                        <option value="ninguna">Sin trabajo en esta zona</option>
+                                        <option value="mechasTransicion">Mechas de transición</option>
+                                        <option value="balayageMedio">Balayage medio</option>
+                                        <option value="sombreado">Sombreado</option>
+                                        <option value="conexionOccipital">Conexión con occipital</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Zona 6: Naranja -->
+                            <div class="card-info z6">
+                                <div class="card-header-info">
+                                    <div class="card-tag">6</div>
+                                    <h4>ZONA OCCIPITAL</h4>
+                                </div>
+                                <ul>
+                                    <li>Balayage</li>
+                                    <li>Mechas tradicionales</li>
+                                    <li>Iluminación en V</li>
+                                    <li>Degradados</li>
+                                </ul>
+                                <p class="destaque">Clave para la caída del cabello y el efecto final.</p>
+                                <div class="selector-zona-box">
+                                    <label>Técnica a aplicar:</label>
+                                    <select class="input-zona" data-zona="6">
+                                        <option value="ninguna">Sin trabajo en esta zona</option>
+                                        <option value="balayage">Balayage</option>
+                                        <option value="mechasTradicionales">Mechas tradicionales</option>
+                                        <option value="iluminacionV">Iluminación en V</option>
+                                        <option value="degradados">Degradados</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Zona 7: Fucsia Oscuro -->
+                            <div class="card-info z7">
+                                <div class="card-header-info">
+                                    <div class="card-tag">7</div>
+                                    <h4>ZONA NUCA</h4>
+                                </div>
+                                <ul>
+                                    <li>Diseños más profundos</li>
+                                    <li>Sombreado</li>
+                                    <li>Color compacto</li>
+                                    <li>Técnicas ocultas</li>
+                                </ul>
+                                <p class="destaque">Ideal para dar profundidad y equilibrio.</p>
+                                <div class="selector-zona-box">
+                                    <label>Técnica a aplicar:</label>
+                                    <select class="input-zona" data-zona="7">
+                                        <option value="ninguna">Sin trabajo en esta zona</option>
+                                        <option value="disenosProfundos">Diseños más profundos</option>
+                                        <option value="sombreado">Sombreado</option>
+                                        <option value="colorCompacto">Color compacto</option>
+                                        <option value="tecnicasOcultas">Técnicas ocultas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Zona 8: Azul Marino -->
+                            <div class="card-info z8">
+                                <div class="card-header-info">
+                                    <div class="card-tag">8</div>
+                                    <h4>PERÍMETRO</h4>
+                                </div>
+                                <ul>
+                                    <li>Contorno inferior</li>
+                                    <li>Toques de luz en puntas</li>
+                                    <li>Conexión de técnica</li>
+                                    <li>Terminación del diseño</li>
+                                </ul>
+                                <p class="destaque">Define la forma final y aporta movimiento.</p>
+                                <div class="selector-zona-box">
+                                    <label>Técnica a aplicar:</label>
+                                    <select class="input-zona" data-zona="8">
+                                        <option value="ninguna">Sin trabajo en esta zona</option>
+                                        <option value="contornoInferior">Contorno inferior</option>
+                                        <option value="luzPuntas">Toques de luz en puntas</option>
+                                        <option value="conexionTecnica">Conexión de técnica</option>
+                                        <option value="terminacionDiseno">Terminación del diseño</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Zona 9: Café/Dorado -->
+                            <div class="card-info z9">
+                                <div class="card-header-info">
+                                    <div class="card-tag">9</div>
+                                    <h4>PATILLAS</h4>
+                                </div>
+                                <ul>
+                                    <li>Mechas finas</li>
+                                    <li>Iluminación de contorno</li>
+                                    <li>Neutralización de reflejos</li>
+                                    <li>Conexión con zona frontal</li>
+                                </ul>
+                                <p class="destaque">Zona clave para suavizar el rostro.</p>
+                                <div class="selector-zona-box">
+                                    <label>Técnica a aplicar:</label>
+                                    <select class="input-zona" data-zona="9">
+                                        <option value="ninguna">Sin trabajo en esta zona</option>
+                                        <option value="mechasFinas">Mechas finas</option>
+                                        <option value="iluminacionContorno">Iluminación de contorno</option>
+                                        <option value="neutralizacion">Neutralización de reflejos</option>
+                                        <option value="conexionFrontal">Conexión con zona frontal</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Resumen Informativo Inferior -->
+                        <div class="seccion-donde-luce">
+                            <h3>¿DÓNDE LUCE MÁS CADA TÉCNICA?</h3>
+                            <div class="grid-tecnicas-recomendadas">
+                                <div class="item-tecnica"><strong>Face Framing:</strong> Zona frontal y patillas</div>
+                                <div class="item-tecnica"><strong>Babylights:</strong> Zona superior y lateral</div>
+                                <div class="item-tecnica"><strong>Balayage:</strong> Zona occipital y coronilla</div>
+                                <div class="item-tecnica"><strong>Money Piece:</strong> Zona frontal</div>
+                                <div class="item-tecnica"><strong>Sombreado:</strong> Zona nuca</div>
+                                <div class="item-tecnica"><strong>Mechas Tradicionales:</strong> Zona superior y
+                                    occipital</div>
+                                <div class="item-tecnica"><strong>Contorno:</strong> Zona perímetro</div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- 3. TIPO DE CRECIMIENTO / RAÍZ -->
+                <fieldset class="grupo-cotizador">
+                    <legend>3. Acabado de Raíz (Efecto de Crecimiento)</legend>
+                    <select id="tipo-raiz" class="input-cotizador">
+                        <option value="ninguna">Sin difuminado (Técnica desde raíz)</option>
+                        <option value="tapRoot">Root Tap (Sombra sutil en crecimiento)</option>
+                        <option value="shadowRoot">Root Shadow (Efecto profundidad)</option>
+                        <option value="meltingRoot">Root Melt (Fundido de color degradado)</option>
+                    </select>
+                </fieldset>
+
+                <!-- MÓDULO DE PRECIO FINAL -->
+                <div id="box-precio">
+                    <h3>Total Estimado</h3>
+                    <p id="monto-estimado">$25.000 CLP</p>
+                    <small>*El valor final puede variar tras la evaluación presencial del estado de la hebra.</small>
+                </div>
+            </section>
+
+            <section id="reservas">
+                <h2>Reserva tu cita</h2>
+                <p>Selecciona el día y la hora que mejor te acomode. Recibirás una confirmación automática en tu correo.
+                </p>
+
+                <div class="contenedor-reserva">
+                    <!-- Reemplaza el src con tu enlace de "Horarios de citas" de Google -->
+                    <iframe src="https://calendar.app.google/GBBcxtbc1SASba4E6" style="border: 0" width="100%"
+                        height="600" frameborder="0"></iframe>
+                </div>
+            </section>
+
+            <section id="contacto">
+                <h2>Contacto</h2>
+                <p>@ronny.vigneau</p>
+                <p>+56 9 5654 1045</p>
+            </section>
+
+        </main>
+
+    </div>
+
+    <footer>
+        <p>© 2026 - Ronny Vigneau</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

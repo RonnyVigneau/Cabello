@@ -1,0 +1,832 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #F4F1EA;
+    color: #333333;
+    margin: 0;
+}
+
+
+header {
+    text-align: center;
+    background-image: url('../img/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+
+nav {
+    background-color: #4A4036;
+    text-align: center;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #D4C4B7;
+}
+
+
+.contenedor {
+    display: flex;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+
+aside {
+    width: 220px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    height: max-content;
+}
+
+aside h3 {
+    margin-top: 0;
+    color: #4A4036;
+    border-bottom: 2px solid #F4F1EA;
+    padding-bottom: 10px;
+}
+
+aside a {
+    display: block;
+    color: #555;
+    text-decoration: none;
+    margin-bottom: 12px;
+    padding: 5px 0;
+}
+
+aside a:hover {
+    color: #A68A73;
+}
+
+
+main {
+    flex: 1;
+}
+
+
+section,
+#inicio {
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: #4A4036;
+}
+
+
+.contenedor img {
+    width: 50%;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.credito-oculto {
+    display: none;
+}
+
+
+#btn-saludo {
+    background-color: #4A4036;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#btn-saludo:hover {
+    background-color: #A68A73;
+}
+
+
+footer {
+    background-color: #4A4036;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 50px;
+}
+
+/* Estilos para el sistema de reservas */
+.contenedor-reserva {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    /* Una sombra un poco más profunda para darle protagonismo al módulo de reservas */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contenedor-reserva iframe {
+    display: block;
+    /* Elimina el espacio fantasma debajo del iframe */
+    width: 100%;
+    height: 650px;
+    /* Altura suficiente para mostrar el calendario completo sin hacer scroll interno */
+    border: none;
+}
+
+/* Estilos para el Catálogo de Colorimetría */
+.tabla-colores {
+    width: 100%;
+    border-collapse: collapse;
+    /* Elimina los espacios dobles entre las celdas */
+    margin: 20px 0 35px 0;
+    font-size: 0.95em;
+}
+
+.tabla-colores th,
+.tabla-colores td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #D4C4B7;
+    /* Línea separadora sutil que combina con el diseño */
+    text-align: left;
+}
+
+.tabla-colores th {
+    background-color: #4A4036;
+    color: white;
+    font-weight: normal;
+    border-radius: 4px 4px 0 0;
+    /* Suaviza solo las esquinas superiores del encabezado */
+}
+
+.tabla-colores tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+/* Efecto al pasar el mouse sobre las filas de la tabla */
+.tabla-colores tbody tr:hover {
+    background-color: #F4F1EA;
+}
+
+/* Estilos para los Visores Dinámicos de Color y Matiz */
+#visor-color,
+#visor-matiz {
+    width: 100%;
+    height: 80px;
+    background-color: #e0dcd3;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-weight: bold;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Cursor de clic para ambas tablas */
+.fila-color,
+.fila-matiz {
+    cursor: pointer;
+}
+
+/* Cotizador e Historial Capilar */
+.grupo-cotizador {
+    border: 1px solid #D4C4B7;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.grupo-cotizador legend {
+    color: #4A4036;
+    font-weight: bold;
+    padding: 0 8px;
+}
+
+.input-cotizador {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0 15px 0;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
+
+.grid-zonas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.card-zona {
+    background-color: #F4F1EA;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.card-zona h4 {
+    margin: 0 0 8px 0;
+    color: #4A4036;
+    font-size: 0.95em;
+}
+
+.card-zona select {
+    width: 100%;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #CCC;
+}
+
+#box-precio {
+    background-color: #4A4036;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#monto-estimado {
+    font-size: 2em;
+    font-weight: bold;
+    color: #D4C4B7;
+    margin: 10px 0;
+}
+
+/* Diagrama de zonas del cráneo */
+.contenedor-diagrama {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #F4F1EA;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.img-diagrama {
+    max-width: 100%;
+    height: auto;
+    max-height: 280px;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+/* Visores de referencia para Tejidos y Raíz */
+.visor-referencia {
+    margin-top: 20px;
+    text-align: center;
+    background-color: #FFFFFF;
+    padding: 15px;
+    border: 1px solid #D4C4B7;
+    border-radius: 8px;
+}
+
+.visor-referencia img {
+    max-width: 250px;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 10px auto;
+    display: block;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.visor-referencia p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Diagrama e Imagen con Zoom */
+.contenedor-diagrama {
+    text-align: center;
+    background-color: #1A1A1A;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.contenedor-diagrama a {
+    text-decoration: none;
+    display: block;
+}
+
+.img-diagrama {
+    max-width: 100%;
+    max-height: 420px;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto 10px auto;
+    transition: transform 0.3s ease;
+}
+
+.contenedor-diagrama a:hover .img-diagrama {
+    transform: scale(1.02);
+}
+
+.btn-zoom {
+    color: #D4C4B7;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+/* Grid de Tarjetas de Zonas */
+.grid-zonas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.card-zona {
+    background-color: #FFFFFF;
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 6px solid #CCC;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.header-zona {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-zona h4 {
+    margin: 0;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.sub-zona {
+    display: block;
+    color: #777;
+    margin: 2px 0 8px 0;
+    font-size: 0.8em;
+}
+
+.badge-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* COLORES ASOCIADOS A CADA ZONA SEGÚN LA GUÍA VISUAL */
+.zona-1 {
+    border-left-color: #a8285c;
+}
+
+.zona-1 .badge-num {
+    background-color: #a8285c;
+}
+
+.zona-2 {
+    border-left-color: #5e2d79;
+}
+
+.zona-2 .badge-num {
+    background-color: #5e2d79;
+}
+
+.zona-3 {
+    border-left-color: #1c629b;
+}
+
+.zona-3 .badge-num {
+    background-color: #1c629b;
+}
+
+.zona-4 {
+    border-left-color: #2e7043;
+}
+
+.zona-4 .badge-num {
+    background-color: #2e7043;
+}
+
+.zona-5 {
+    border-left-color: #9c771d;
+}
+
+.zona-5 .badge-num {
+    background-color: #9c771d;
+}
+
+.zona-6 {
+    border-left-color: #bd4f1e;
+}
+
+.zona-6 .badge-num {
+    background-color: #bd4f1e;
+}
+
+.zona-7 {
+    border-left-color: #8a1841;
+}
+
+.zona-7 .badge-num {
+    background-color: #8a1841;
+}
+
+.zona-8 {
+    border-left-color: #13375b;
+}
+
+.zona-8 .badge-num {
+    background-color: #13375b;
+}
+
+.zona-9 {
+    border-left-color: #6b522a;
+}
+
+.zona-9 .badge-num {
+    background-color: #6b522a;
+}
+
+.card-zona select {
+    width: 100%;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #DDD;
+    margin-top: 5px;
+}
+
+/* Contenedor Principal de la Infografía Cotizable */
+.guia-tecnica-contenedor {
+    background-color: #121212;
+    color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.encabezado-guia {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.subtitulo-guia {
+    color: #D4C4B7;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.lema-principal {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #E0C9A6;
+    font-size: 1.3em;
+    margin: 8px 0;
+}
+
+.grid-informacion-zonas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 16px;
+}
+
+/* Tarjeta de Zona */
+.card-info {
+    background: #1E1E1E;
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 5px solid #CCC;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.card-tag {
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+}
+
+.card-info h4 {
+    margin: 0;
+    font-size: 0.9em;
+    color: #FFF;
+}
+
+.card-info h4 small {
+    color: #AAA;
+    font-weight: normal;
+    display: block;
+}
+
+.card-info ul {
+    margin: 5px 0 10px 0;
+    padding-left: 20px;
+    font-size: 0.82em;
+    color: #DDD;
+}
+
+.card-info .destaque {
+    margin: 0 0 12px 0;
+    font-size: 0.78em;
+    padding: 5px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #E0C9A6;
+}
+
+/* Selector dentro de la Tarjeta */
+.selector-zona-box {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+}
+
+.selector-zona-box label {
+    display: block;
+    font-size: 0.75em;
+    color: #BBB;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-zona {
+    width: 100%;
+    padding: 8px;
+    background-color: #2A2A2A;
+    color: #FFF;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 0.85em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-zona:focus {
+    border-color: #E0C9A6;
+}
+
+/* Identificadores de color idénticos a la imagen original */
+.z1 {
+    border-color: #A8285C;
+}
+
+.z1 .card-tag {
+    background: #A8285C;
+}
+
+.z2 {
+    border-color: #5E2D79;
+}
+
+.z2 .card-tag {
+    background: #5E2D79;
+}
+
+.z3 {
+    border-color: #1C629B;
+}
+
+.z3 .card-tag {
+    background: #1C629B;
+}
+
+.z4 {
+    border-color: #2E7043;
+}
+
+.z4 .card-tag {
+    background: #2E7043;
+}
+
+.z5 {
+    border-color: #9C771D;
+}
+
+.z5 .card-tag {
+    background: #9C771D;
+}
+
+.z6 {
+    border-color: #BD4F1E;
+}
+
+.z6 .card-tag {
+    background: #BD4F1E;
+}
+
+.z7 {
+    border-color: #8A1841;
+}
+
+.z7 .card-tag {
+    background: #8A1841;
+}
+
+.z8 {
+    border-color: #13375B;
+}
+
+.z8 .card-tag {
+    background: #13375B;
+}
+
+.z9 {
+    border-color: #6B522A;
+}
+
+.z9 .card-tag {
+    background: #6B522A;
+}
+
+/* Resumen Inferior */
+.seccion-donde-luce {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.seccion-donde-luce h3 {
+    color: #D4C4B7;
+    font-size: 0.95em;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.grid-tecnicas-recomendadas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.item-tecnica {
+    background: #2A2A2A;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.78em;
+    color: #CCC;
+}
+
+.item-tecnica strong {
+    color: #FFF;
+}
+
+.contenedor-mapa-tactil {
+    text-align: center;
+    background-color: #1A1A1A;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+#mapa-craneo-svg {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.zona-svg {
+    fill: #333333;
+    stroke: #1A1A1A;
+    stroke-width: 2px;
+    cursor: pointer;
+    transition: fill 0.3s ease, transform 0.2s ease;
+}
+
+.label-svg {
+    fill: #FFFFFF;
+    font-weight: bold;
+    font-size: 14px;
+    pointer-events: none;
+    /* Permite hacer clic a través del texto */
+}
+
+/* Colores de Iluminación al presionar/seleccionar cada zona */
+.zona-svg[data-zona="1"]:hover,
+.zona-svg[data-zona="1"].activa {
+    fill: #A8285C;
+}
+
+.zona-svg[data-zona="2"]:hover,
+.zona-svg[data-zona="2"].activa {
+    fill: #5E2D79;
+}
+
+.zona-svg[data-zona="3"]:hover,
+.zona-svg[data-zona="3"].activa {
+    fill: #1C629B;
+}
+
+.zona-svg[data-zona="4"]:hover,
+.zona-svg[data-zona="4"].activa {
+    fill: #2E7043;
+}
+
+.zona-svg[data-zona="5"]:hover,
+.zona-svg[data-zona="5"].activa {
+    fill: #9C771D;
+}
+
+.zona-svg[data-zona="6"]:hover,
+.zona-svg[data-zona="6"].activa {
+    fill: #BD4F1E;
+}
+
+.zona-svg[data-zona="7"]:hover,
+.zona-svg[data-zona="7"].activa {
+    fill: #8A1841;
+}
+
+.zona-svg[data-zona="8"]:hover,
+.zona-svg[data-zona="8"].activa {
+    fill: #13375B;
+}
+
+.zona-svg[data-zona="9"]:hover,
+.zona-svg[data-zona="9"].activa {
+    fill: #6B522A;
+}
+
+/* Silueta de referencia del rostro */
+.silueta-rostro {
+    fill: #252525;
+    stroke: #3A3A3A;
+    stroke-width: 2px;
+    pointer-events: none;
+}
+
+.oreja-svg {
+    fill: #1A1A1A;
+    stroke: #444444;
+    stroke-width: 1.5px;
+    pointer-events: none;
+}
+
+/* Ajustes a las zonas interactivas del cráneo */
+.zona-svg {
+    fill: #3A3A3A;
+    stroke: #121212;
+    stroke-width: 2.5px;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: fill 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
+}
+
+.zona-svg:hover, .zona-svg.activa {
+    opacity: 1;
+    stroke: #FFFFFF;
+    stroke-width: 3px;
+}
+
+/* Números informativos */
+.label-svg {
+    fill: #FFFFFF;
+    font-weight: bold;
+    font-size: 15px;
+    text-anchor: middle;
+    dominant-baseline: central;
+    pointer-events: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
