@@ -3,8 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salón Vigneau</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -73,117 +77,179 @@
                         alt="Absolut Repair Molecular L'Orèal"></p>
             </section>
 
-            <section id="color">
-                <section id="color">
-                    <h2>Catálogo de Color</h2>
-                    <p>Trabajamos con la nomenclatura internacional estándar. El primer número indica la altura del tono
-                        (qué tan claro u oscuro es), y el número después del punto indica el reflejo principal.</p>
+            <section id="color" class="color-simulator">
+                <div class="simulator-header">
+                    <div>
+                        <h2>Atelier Capilar</h2>
+                        <p>Simulador y mezclador avanzado de color</p>
+                    </div>
+                    <div class="simulator-actions">
+                        <button type="button" id="open-favorites" class="sim-secondary-button">
+                            Mis favoritos (<span id="fav-count">0</span>)
+                        </button>
+                        <button type="button" id="reset-simulator" class="sim-secondary-button">Restaurar</button>
+                    </div>
+                </div>
 
-                    <h3>Alturas de Tono (Bases)</h3>
+                <div class="simulator-grid">
+                    <div class="simulator-controls">
+                        <div class="sim-card">
+                            <div class="sim-card-heading">
+                                <div>
+                                    <h3>1. Color base</h3>
+                                    <p>Define el fondo y la profundidad del tono principal.</p>
+                                </div>
+                                <div class="sim-color-labels">
+                                    <span id="base-name-label"></span>
+                                    <code id="base-hex-label"></code>
+                                </div>
+                            </div>
+                            <span class="sim-label">Tonos capilares predefinidos</span>
+                            <div id="base-presets" class="base-presets"></div>
+                            <div class="sim-input-grid">
+                                <label class="sim-label" for="base-color-picker">Selector personalizado
+                                    <input type="color" id="base-color-picker" value="#2c221e">
+                                </label>
+                                <label class="sim-label" for="base-hex-input">Código HEX
+                                    <input type="text" id="base-hex-input" value="#2C221E" maxlength="7"
+                                        autocomplete="off" spellcheck="false">
+                                </label>
+                            </div>
+                            <label class="sim-label" for="base-intensity">
+                                Intensidad de base <output id="base-intensity-val">100%</output>
+                                <input type="range" id="base-intensity" min="40" max="140" value="100">
+                            </label>
+                        </div>
 
-                    <!-- Este es el visor que cambiará de color dinámicamente -->
-                    <div id="visor-color">Haz clic en un tono de la tabla para visualizarlo</div>
+                        <div class="sim-card">
+                            <h3>2. Reflejos y matices</h3>
+                            <p class="sim-help">Activa hasta dos reflejos. Si usas ambos, la mezcla respeta una
+                                proporción de 75% para el primero y 25% para el segundo.</p>
 
-                    <table class="tabla-colores">
-                        <thead>
-                            <tr>
-                                <th>Nomenclatura</th>
-                                <th>Nombre Estándar del Color</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Agregamos la clase 'fila-color' y los datos ocultos del color hexadecimal -->
-                            <tr class="fila-color" data-color="#1a1a1a" data-nombre="Negro Profundo">
-                                <td>1.0</td>
-                                <td>Negro Profundo</td>
-                            </tr>
-                            <tr class="fila-color" data-color="#302013" data-nombre="Castaño Oscuro">
-                                <td>3.0</td>
-                                <td>Castaño Oscuro</td>
-                            </tr>
-                            <tr class="fila-color" data-color="#4a3123" data-nombre="Castaño Medio">
-                                <td>4.0</td>
-                                <td>Castaño Medio</td>
-                            </tr>
-                            <tr class="fila-color" data-color="#6b472e" data-nombre="Castaño Claro">
-                                <td>5.0</td>
-                                <td>Castaño Claro</td>
-                            </tr>
-                            <tr class="fila-color" data-color="#8b6540" data-nombre="Rubio Oscuro">
-                                <td>6.0</td>
-                                <td>Rubio Oscuro</td>
-                            </tr>
-                            <tr class="fila-color" data-color="#ad8450" data-nombre="Rubio Medio">
-                                <td>7.0</td>
-                                <td>Rubio Medio</td>
-                            </tr>
-                            <tr class="fila-color" data-color="#d4af7a" data-nombre="Rubio Claro">
-                                <td>8.0</td>
-                                <td>Rubio Claro</td>
-                            </tr>
-                            <tr class="fila-color" data-color="#ebd2a4" data-nombre="Rubio Muy Claro">
-                                <td>9.0</td>
-                                <td>Rubio Muy Claro</td>
-                            </tr>
-                            <tr class="fila-color" data-color="#f5e6cd" data-nombre="Rubio Platino / Extra Claro">
-                                <td>10.0</td>
-                                <td>Rubio Platino / Extra Claro</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <div class="reflection-card">
+                                <div class="reflection-heading">
+                                    <label><input type="checkbox" id="ref1-active" checked> Reflejo 1
+                                        <span id="ref1-prop-badge"></span></label>
+                                    <span class="sim-color-labels"><span id="ref1-name-label"></span>
+                                        <code id="ref1-hex-label"></code></span>
+                                </div>
+                                <div id="ref1-controls" class="sim-input-grid">
+                                    <label class="sim-label" for="ref1-color-picker">Color
+                                        <input type="color" id="ref1-color-picker" value="#d4af37">
+                                    </label>
+                                    <label class="sim-label" for="ref1-hex-input">Código HEX
+                                        <input type="text" id="ref1-hex-input" value="#D4AF37" maxlength="7"
+                                            autocomplete="off" spellcheck="false">
+                                    </label>
+                                    <label class="sim-label sim-full-width" for="ref1-opacity">
+                                        Opacidad / cobertura <output id="ref1-opacity-val">65%</output>
+                                        <input type="range" id="ref1-opacity" min="10" max="95" value="65">
+                                    </label>
+                                </div>
+                            </div>
 
-                    <h3>Reflejos (Matices)</h3>
+                            <div class="reflection-card">
+                                <div class="reflection-heading">
+                                    <label><input type="checkbox" id="ref2-active"> Reflejo 2
+                                        <span id="ref2-prop-badge"></span></label>
+                                    <span class="sim-color-labels"><span id="ref2-name-label"></span>
+                                        <code id="ref2-hex-label"></code></span>
+                                </div>
+                                <div id="ref2-controls" class="sim-input-grid">
+                                    <label class="sim-label" for="ref2-color-picker">Color
+                                        <input type="color" id="ref2-color-picker" value="#b83280">
+                                    </label>
+                                    <label class="sim-label" for="ref2-hex-input">Código HEX
+                                        <input type="text" id="ref2-hex-input" value="#B83280" maxlength="7"
+                                            autocomplete="off" spellcheck="false">
+                                    </label>
+                                    <label class="sim-label sim-full-width" for="ref2-opacity">
+                                        Opacidad / cobertura <output id="ref2-opacity-val">40%</output>
+                                        <input type="range" id="ref2-opacity" min="10" max="95" value="40">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
 
-                    <!-- Nuevo visor exclusivo para los matices -->
-                    <div id="visor-matiz">Haz clic en un matiz de la tabla para visualizarlo</div>
+                        <div class="sim-card">
+                            <h3>3. Asistente de neutralización</h3>
+                            <p class="sim-help">Selecciona un matiz corrector para neutralizar reflejos indeseados.</p>
+                            <div class="neutralization-grid">
+                                <button type="button" data-neutralize="yellow"><span>Amarillo</span><small>Neutraliza: violeta</small></button>
+                                <button type="button" data-neutralize="orange"><span>Naranjo</span><small>Neutraliza: azul</small></button>
+                                <button type="button" data-neutralize="red"><span>Rojo</span><small>Neutraliza: verde</small></button>
+                                <button type="button" data-neutralize="green"><span>Verde</span><small>Neutraliza: rojo</small></button>
+                            </div>
+                        </div>
 
-                    <table class="tabla-colores">
-                        <thead>
-                            <tr>
-                                <th>Nomenclatura</th>
-                                <th>Tipo de Reflejo</th>
-                                <th>Ejemplo en Tintura</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="fila-matiz" data-color="#7b8b9a" data-nombre="Ceniza (Frío / Azulado)">
-                                <td>.1</td>
-                                <td>Ceniza (Frío)</td>
-                                <td>7.1 (Rubio Medio Ceniza)</td>
-                            </tr>
-                            <tr class="fila-matiz" data-color="#937b9a" data-nombre="Nacarado / Irisado (Violeta)">
-                                <td>.2</td>
-                                <td>Nacarado / Irisado (Frío)</td>
-                                <td>8.2 (Rubio Claro Nacarado)</td>
-                            </tr>
-                            <tr class="fila-matiz" data-color="#d4b85c" data-nombre="Dorado (Amarillo / Oro)">
-                                <td>.3</td>
-                                <td>Dorado (Cálido)</td>
-                                <td>6.3 (Rubio Oscuro Dorado)</td>
-                            </tr>
-                            <tr class="fila-matiz" data-color="#c46227" data-nombre="Cobrizo (Naranja)">
-                                <td>.4</td>
-                                <td>Cobrizo (Cálido)</td>
-                                <td>7.4 (Rubio Medio Cobrizo)</td>
-                            </tr>
-                            <tr class="fila-matiz" data-color="#8a3324" data-nombre="Caoba (Rojizo Violeta)">
-                                <td>.5</td>
-                                <td>Caoba (Rojizo frío)</td>
-                                <td>5.5 (Castaño Claro Caoba)</td>
-                            </tr>
-                            <tr class="fila-matiz" data-color="#a82020" data-nombre="Rojo (Rojo Intenso)">
-                                <td>.6</td>
-                                <td>Rojo (Cálido)</td>
-                                <td>6.6 (Rubio Oscuro Rojo)</td>
-                            </tr>
-                            <tr class="fila-matiz" data-color="#6b543e" data-nombre="Mate / Marrón (Verdoso / Neutro)">
-                                <td>.7</td>
-                                <td>Mate / Marrón (Neutro)</td>
-                                <td>7.7 (Rubio Medio Marrón)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
+                        <div class="sim-card">
+                            <h3>4. Tipo de iluminación y ambiente</h3>
+                            <div id="lighting-modes" class="lighting-grid">
+                                <button type="button" class="light-btn is-selected" data-light="warm">☀️<span>Sol cálido</span></button>
+                                <button type="button" class="light-btn" data-light="studio">💡<span>Estudio frío</span></button>
+                                <button type="button" class="light-btn" data-light="ring">📸<span>Ring light</span></button>
+                                <button type="button" class="light-btn" data-light="dim">🌙<span>Luz tenue</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="simulator-preview">
+                        <div class="sim-card preview-card">
+                            <div class="preview-heading">
+                                <h3>Simulación visual de fibra</h3>
+                                <span>Vista orientativa</span>
+                            </div>
+                            <div id="hair-container" class="hair-preview" role="img"
+                                aria-label="Simulación del color de cabello">
+                                <div id="hair-base-layer" class="hair-base-layer"></div>
+                                <div id="hair-texture-layer" class="hair-texture-layer"></div>
+                                <div id="hair-ref1-layer" class="hair-reflection-layer"></div>
+                                <div id="hair-ref2-layer" class="hair-reflection-layer"></div>
+                                <div id="hair-sheen" class="hair-sheen"></div>
+                            </div>
+                            <p id="preview-status-text" class="preview-status"></p>
+                            <div class="estimated-color">
+                                <span>Color resultante estimado</span>
+                                <div><span id="result-color-swatch"></span><code id="result-hex-code"></code></div>
+                            </div>
+                            <div class="formula-breakdown">
+                                <div class="formula-title">
+                                    <strong>Desglose de fórmula capilar</strong>
+                                    <span id="ratio-badge"></span>
+                                </div>
+                                <div id="formula-breakdown-details"></div>
+                            </div>
+                            <div class="formula-actions">
+                                <button type="button" id="save-favorite" class="sim-primary-button">Guardar fórmula</button>
+                                <button type="button" id="copy-formula" class="sim-secondary-button">Copiar fórmula</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="favorites-modal" class="favorites-modal" hidden>
+                    <div class="favorites-dialog" role="dialog" aria-modal="true" aria-labelledby="favorites-title">
+                        <div class="favorites-heading">
+                            <h3 id="favorites-title">Mis fórmulas guardadas</h3>
+                            <button type="button" id="close-favorites" aria-label="Cerrar">&times;</button>
+                        </div>
+                        <div id="favorites-list" class="favorites-list"></div>
+                    </div>
+                </div>
+                <div id="save-favorite-modal" class="favorites-modal" hidden>
+                    <form id="save-favorite-form" class="favorites-dialog" role="dialog" aria-modal="true"
+                        aria-labelledby="save-favorite-title">
+                        <h3 id="save-favorite-title">Guardar fórmula</h3>
+                        <label class="sim-label" for="favorite-name-input">Nombre de la fórmula
+                            <input type="text" id="favorite-name-input" maxlength="80" required>
+                        </label>
+                        <div class="formula-actions">
+                            <button type="button" id="cancel-save-favorite" class="sim-secondary-button">Cancelar</button>
+                            <button type="submit" class="sim-primary-button">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="toast-notification" class="sim-toast" role="status" aria-live="polite"></div>
             </section>
 
             <section id="cotizador">
