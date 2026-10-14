@@ -630,8 +630,8 @@ class HairColorSimulator {
                 const colors = document.createElement("div");
                 colors.className = "favorite-swatches";
                 [favorite.state.baseColor,
-                    ...(favorite.state.ref1Active ? [favorite.state.ref1Color] : []),
-                    ...(favorite.state.ref2Active ? [favorite.state.ref2Color] : [])
+                ...(favorite.state.ref1Active ? [favorite.state.ref1Color] : []),
+                ...(favorite.state.ref2Active ? [favorite.state.ref2Color] : [])
                 ].forEach((color) => {
                     const swatch = document.createElement("span");
                     swatch.style.backgroundColor = ColorEngine.toCSS(ColorEngine.toNormalized(color));
